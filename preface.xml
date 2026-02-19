@@ -10,7 +10,7 @@
    <simpara>
     <acronym>PHP</acronym> ist die Abkürzung für &quot;<emphasis>PHP: Hypertext
     Preprocessor</emphasis>&quot;, eine weitverbreitete Open Source Skriptsprache
-    speziell für Webentwicklungen. PHP läßt sich in HTML einbinden. Die Syntax
+    speziell für Webentwicklungen. PHP lässt sich in HTML einbinden. Die Syntax
     erinnert an C, Java und Perl und ist einfach zu erlernen. Das Hauptziel
     der Sprache ist, Webentwicklern die Möglichkeit zu geben, schnell
     dynamisch generierte Webseiten zu erzeugen. Aber Sie können PHP für weitaus
@@ -20,7 +20,7 @@
  </info>
 
  <para>
-  Dieses Handbuch besteht vorranging aus einer <link linkend="funcref">
+  Dieses Handbuch besteht vorrangig aus einer <link linkend="funcref">
   Funktionsreferenz</link>, enthält aber zusätzlich auch eine
   <link linkend="langref">Sprachreferenz</link>, Erläuterungen zu den
   wichtigsten <link linkend="features">Features</link> und weitere
