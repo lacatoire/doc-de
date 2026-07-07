@@ -60,6 +60,18 @@ weiteren Verwendung wird dringend abgeraten.</simpara></warning>'>
   Engine <classname>Random\Engine\Secure</classname> eine kryptografisch sichere Zufallsverteilung.
  </para>
 </caution>'>
+<!ENTITY caution.mt19937-global-state '<caution xmlns="http://docbook.org/ns/docbook">
+ <simpara>
+    Diese Funktion verwendet die globale Mt19937-Instanz ("Mersenne Twister") als Quelle für Zufälligkeit und teilt sich somit ihren Zustand mit allen anderen Funktionen, die das globale Mt19937 verwenden.
+    Die Verwendung einer dieser Funktionen setzt die Sequenz für <emphasis>alle</emphasis> anderen Funktionen fort, unabhängig vom Geltungsbereich.
+  </simpara>
+  <simpara>
+    Das Erzeugen reproduzierbarer Sequenzen durch Seeding von <function>mt_srand</function> oder <function>srand</function> mit einem bekannten Wert führt auch bei dieser Funktion zu einer reproduzierbaren Ausgabe.
+  </simpara>
+  <simpara>
+    In jedem neu geschriebenen Code sollten bevorzugt die Methoden von <classname>Random\Randomizer</classname> verwendet werden.
+ </simpara>
+</caution>'>
 
 <!-- Notes -->
 
@@ -488,6 +500,9 @@ als <emphasis>DEPRECATED</emphasis> (veraltet) markiert.</simpara></warning>'>
 <!ENTITY warn.removed.alias-8-0-0 '<warning
 xmlns="http://docbook.org/ns/docbook"><simpara>Dieser Alias wurde in PHP 8.0.0
 <emphasis>ENTFERNT</emphasis>.</simpara></warning>'>
+<!ENTITY warn.removed.feature-8-5-0 '<warning
+xmlns="http://docbook.org/ns/docbook"><simpara>Dieses Feature wurde in
+PHP 8.5.0 <emphasis>ENTFERNT</emphasis>.</simpara></warning>'>
 
 <!ENTITY warn.experimental.func '<warning xmlns="http://docbook.org/ns/docbook"><simpara>Diese Funktion ist
 <emphasis>EXPERIMENTELL</emphasis>. Das Verhalten, der Funktionsname und die
@@ -876,6 +891,12 @@ Dateinamen gesucht.'>
 
 <!ENTITY return.type.true.84 '<row xmlns="http://docbook.org/ns/docbook">
  <entry>8.4.0</entry>
+ <entry>
+  Der Rückgabewert ist nun &true;; vorher war es <type>bool</type>.
+ </entry>
+</row>'>
+<!ENTITY return.type.true.85 '<row xmlns="http://docbook.org/ns/docbook">
+ <entry>8.5.0</entry>
  <entry>
   Der Rückgabewert ist nun &true;; vorher war es <type>bool</type>.
  </entry>
@@ -1342,6 +1363,7 @@ Die Übergabe von nicht vertrauenswürdigen Daten an diesen Parameter ist <empha
 <!-- intl notes -->
 
 <!ENTITY intl.parameter.intl-calendar '<para xmlns="http://docbook.org/ns/docbook">Eine <classname>IntlCalendar</classname>-Instanz.</para>'>
+<!ENTITY intl.param.grapheme.locale '<simpara>Die zu verwendende Locale.</simpara>'>
 
 <!ENTITY intl.error.intl-calendar '<para xmlns="http://docbook.org/ns/docbook">Bei einem Fehler wird auch &false; zurückgegeben. Um Fehlerzustände zu erkennen, kann die Funktion <function>intl_get_error_code</function> verwendet werden oder Intl so konfiguriert werden, dass es <link linkend="ini.intl.use-exceptions" >Exceptions</link> auslöst.</para>'>
 
@@ -1352,6 +1374,12 @@ Die Übergabe von nicht vertrauenswürdigen Daten an diesen Parameter ist <empha
 <!ENTITY intl.codepoint.example 'Testen unterschiedlicher Codepoints'>
 
 <!ENTITY intl.locale-len.return '<para xmlns="http://docbook.org/ns/docbook">Gibt &null; zurück, wenn die Länge von <parameter>locale</parameter> <constant>INTL_MAX_LOCALE_LEN</constant> überschreitet.</para>'>
+<!ENTITY intl.changelog.grapheme.locale '<row xmlns="http://docbook.org/ns/docbook">
+ <entry>8.5.0</entry>
+ <entry>
+  Der optionale Parameter <parameter>locale</parameter> wurde hinzugefügt.
+ </entry>
+</row>'>
 
 <!ENTITY intl.property.parameter '<para xmlns="http://docbook.org/ns/docbook">Die Unicode-Eigenschaft, die gesucht werden soll (siehe die <literal>IntlChar::PROPERTY_*</literal>-Konstanten).</para>'>
 
@@ -2489,6 +2517,10 @@ irgendwelche Eingabevariablen enthält, sollten stattdessen
 verwendet werden. Alternativ dazu müssen die Daten korrekt formatiert sein und
 alle Strings müssen mit der Funktion
 <function>mysqli_real_escape_string</function> maskiert werden.</para></warning>'>
+<!ENTITY mysqli.conditionalexception '<simpara xmlns="http://docbook.org/ns/docbook">
+Wenn die mysqli-Fehlerberichterstattung aktiviert ist (<constant>MYSQLI_REPORT_ERROR</constant>) und die angeforderte Operation fehlschlägt,
+wird eine Warnung erzeugt. Ist zusätzlich der Modus auf <constant>MYSQLI_REPORT_STRICT</constant> gesetzt,
+wird stattdessen eine <classname>mysqli_sql_exception</classname> ausgelöst.</simpara>'>
 
 <!-- Notes for PCRE -->
 <!ENTITY pcre.pattern.warning '<para xmlns="http://docbook.org/ns/docbook">
@@ -4901,6 +4933,16 @@ local: {
    zugrundeliegenden <link linkend="random-randomizer.props.engine"><literal>Random\Randomizer::$engine</literal></link> ausgelöst werden.
   </simpara>
  </listitem>
+'>
+<!ENTITY uri.errors.invalidUrlException '
+  <simpara>
+   Wenn die resultierende URL ungültig ist, wird eine <exceptionname>Uri\WhatWg\InvalidUrlException</exceptionname> ausgelöst.
+  </simpara>
+'>
+<!ENTITY uri.errors.invalidUriException '
+  <simpara>
+   Wenn die resultierende URI ungültig ist, wird eine <exceptionname>Uri\InvalidUriException</exceptionname> ausgelöst.
+  </simpara>
 '>
 
 <!-- UOPZ snippets -->
